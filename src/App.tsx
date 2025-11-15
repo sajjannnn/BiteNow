@@ -1,11 +1,12 @@
+import Body from "./components/Body"
+import Header from "./components/Header"
 
 function App() {
   return (
-    <>
-     <div className='bg-blue-500 text-white p-4'>
- hi 
-     </div>
-    </>
+    <div>
+      <Header />
+      <Body />
+    </div>
   )
 }
 
