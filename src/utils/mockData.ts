@@ -70,7 +70,7 @@ export interface Card3 {
 export interface Header {
   title: string
   headerStyling: HeaderStyling
-  action?: Action
+  action?: unknown
 }
 
 export interface HeaderStyling {
@@ -83,20 +83,20 @@ export interface Padding {
   bottom: number
 }
 
-export interface Action {}
+// export interface Action {}
 
 export interface Layout {
   columns: number
   rows?: number
   horizontalScrollEnabled?: boolean
   itemSpacing?: number
-  widgetPadding?: WidgetPadding
+  widgetPadding?: unknown
   containerStyle?: ContainerStyle
   widgetTheme?: WidgetTheme
   scrollBar?: ScrollBar
 }
 
-export interface WidgetPadding {}
+// export interface WidgetPadding {}
 
 export interface ContainerStyle {
   containerPadding: ContainerPadding
@@ -153,8 +153,8 @@ export interface Info {
   entityType: string
   accessibility: Accessibility
   entityId: string
-  frequencyCapping: FrequencyCapping
-  externalMarketing: ExternalMarketing
+  frequencyCapping: unknown
+  externalMarketing: unknown
 }
 
 export interface Action2 {
@@ -168,9 +168,9 @@ export interface Accessibility {
   altTextCta: string
 }
 
-export interface FrequencyCapping {}
+// export interface FrequencyCapping {}
 
-export interface ExternalMarketing {}
+// export interface ExternalMarketing {}
 
 export interface Style {
   width: Width
@@ -231,12 +231,12 @@ export interface Info2 {
   badgesV2: BadgesV2
   aggregatedDiscountInfoV3?: AggregatedDiscountInfoV3
   differentiatedUi: DifferentiatedUi
-  reviewsSummary: ReviewsSummary
+  reviewsSummary: unknown
   displayType: string
-  restaurantOfferPresentationInfo: RestaurantOfferPresentationInfo
+  restaurantOfferPresentationInfo: unknown
   externalRatings: ExternalRatings
   ratingsDisplayPreference: string
-  aggregatedDiscountInfoV2?: AggregatedDiscountInfoV2
+  aggregatedDiscountInfoV2?: unknown
   orderabilityCommunication?: OrderabilityCommunication
   veg?: boolean
 }
@@ -270,8 +270,8 @@ export interface BadgesV2 {
 
 export interface EntityBadges {
   imageBased: ImageBased
-  textBased: TextBased
-  textExtendedBadges: TextExtendedBadges
+  textBased: unknown
+  textExtendedBadges: unknown
 }
 
 export interface ImageBased {
@@ -287,9 +287,9 @@ export interface Attributes {
   imageId: string
 }
 
-export interface TextBased {}
+// export interface TextBased {}
 
-export interface TextExtendedBadges {}
+// export interface TextExtendedBadges {}
 
 export interface AggregatedDiscountInfoV3 {
   header: string
@@ -303,18 +303,18 @@ export interface DifferentiatedUi {
 }
 
 export interface DifferentiatedUiMediaDetails {
-  lottie: Lottie
-  video: Video
+  lottie: unknown
+  video: unknown
   mediaType?: string
 }
 
-export interface Lottie {}
+// export interface Lottie {}
 
-export interface Video {}
+// export interface Video {}
 
-export interface ReviewsSummary {}
+// export interface ReviewsSummary {}
 
-export interface RestaurantOfferPresentationInfo {}
+// export interface RestaurantOfferPresentationInfo {}
 
 export interface ExternalRatings {
   aggregatedRating: AggregatedRating
@@ -327,22 +327,22 @@ export interface AggregatedRating {
   ratingCount?: string
 }
 
-export interface AggregatedDiscountInfoV2 {}
+// export interface AggregatedDiscountInfoV2 {}
 
 export interface OrderabilityCommunication {
-  title: Title
-  subTitle: SubTitle
-  message: Message
-  customIcon: CustomIcon
+  title: unknown
+  subTitle: unknown
+  message: unknown
+  customIcon: unknown
 }
 
-export interface Title {}
+// export interface Title {}
 
-export interface SubTitle {}
+// export interface SubTitle {}
 
-export interface Message {}
+// export interface Message {}
 
-export interface CustomIcon {}
+// export interface CustomIcon {}
 
 export interface Analytics {
   context: string
@@ -361,8 +361,8 @@ export interface Info3 {
   entityType: string
   accessibility: Accessibility2
   entityId: string
-  frequencyCapping: FrequencyCapping2
-  externalMarketing: ExternalMarketing2
+  frequencyCapping: unknown
+  externalMarketing: unknown
 }
 
 export interface Action3 {
@@ -376,9 +376,9 @@ export interface Accessibility2 {
   altTextCta: string
 }
 
-export interface FrequencyCapping2 {}
+// export interface FrequencyCapping2 {}
 
-export interface ExternalMarketing2 {}
+// export interface ExternalMarketing2 {}
 
 export interface Style2 {
   width: Width2
@@ -419,11 +419,11 @@ export interface FacetList {
 export interface FacetInfo {
   label: string
   id: string
-  analytics: Analytics2
+  analytics: unknown
   openFilter?: boolean
 }
 
-export interface Analytics2 {}
+// export interface Analytics2 {}
 
 export interface Brand {
   text: string
