@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { logoUrl } from "../utils/constants"
 
  const Header = () => {
+  const [isLoggedIn, setLoggedIn] = useState("Login")
   return (
     <div className="header">
       <div>
@@ -13,6 +15,8 @@ import { logoUrl } from "../utils/constants"
           <li>About</li>
           <li>Cart</li>
           <li>Contact us</li>
+          <button onClick={() => isLoggedIn === "Login" ? setLoggedIn("Logout") : setLoggedIn("Login")
+          }>{isLoggedIn}</button>
         </ul>
       </div>
     </div>

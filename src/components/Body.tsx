@@ -1,23 +1,69 @@
 import ResCard  from "./ResCard"
-import { mockData, type Restaurant} from "../utils/mockData";
-import { useState } from "react";
+import {type Restaurant} from "../utils/mockData";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
+let resC : Restaurant[]
 
 
-
-const resList = mockData.data.cards[1].card.card.gridElements?.infoWithStyle.restaurants ?? [] ; 
 const Body = () => {
-  const [Res, setRes] = useState(resList);
-  const topRatedRestaurant = () => {
-    const newList : Restaurant[] = resList.filter((restuarant) => restuarant.info.avgRating > 4)
+  const [Res, setRes] = useState([] as Restaurant[]);
+  const [searchText, setSearchText] = useState("");
+
+     useEffect(() => {
+     const fetchData = async() => {
+      const data= await fetch("https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING");
+      const json = await data.json();
+      console.log(json);
+      
+      // const json =  await data.json();
+      resC = json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+      return setRes(resC)
+    }
+   fetchData();   
+}, []);
+
+
+  const topRatedRestaurant = () : void => {
+    const newList : Restaurant[] = Res.filter((restuarant) => restuarant.info.avgRating > 4)
     setRes(newList);
   } 
 
-  
-  return (
+  const searchRes = () : void => {
+    const searchList : Restaurant[] = resC.filter((restaurant) => restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()))
+    setRes(searchList);
+  }
+
+  return Res.length === 0 ?
+  <div id ="shimmer-container">
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+   <Shimmer />
+  </div>
+
+   : (
     <div className="body">
-      <div className="search">
+      <input className="inputt"
+      value={searchText}
+      onChange={(e) => setSearchText(e.target.value)}
+      placeholder="Search..." type="text">
+      </input>
+        <button className = "search" onClick={searchRes}>
         Search
-      </div>
+        </button>
       
       <button onClick = {topRatedRestaurant}>
         Top Rated Restaurant
