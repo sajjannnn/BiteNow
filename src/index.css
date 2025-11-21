@@ -6,10 +6,15 @@
 .nav-items ul {
     display: flex;
     margin: 35px;
+    justify-content: space-between;
 }
 .nav-items li {
     padding: 0px 20px;
     list-style-type: none;
+    font-size: large;
+}
+Link {
+    padding: 0px 20px;
     font-size: large;
 
 }

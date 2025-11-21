@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { logoUrl } from "../utils/constants"
+import { Link } from "react-router-dom";
 
  const Header = () => {
   const [isLoggedIn, setLoggedIn] = useState("Login")
@@ -11,10 +12,16 @@ import { logoUrl } from "../utils/constants"
 
       <div className="nav-items">
         <ul>
-          <li>Home </li>
-          <li>About</li>
+          <li>
+            <Link to= "/">Home</Link>
+          </li>
+          <li>
+            <Link to = "/about" >About</Link>
+          </li>
+          <li>
+            <Link to= "/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
-          <li>Contact us</li>
           <button onClick={() => isLoggedIn === "Login" ? setLoggedIn("Logout") : setLoggedIn("Login")
           }>{isLoggedIn}</button>
         </ul>
