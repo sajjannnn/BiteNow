@@ -5,6 +5,7 @@ import Contact from "./components/Contact"
 import {createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
 import Error from "./components/Error"
 import RestaurantMenu from "./components/RestaurantMenu"
+import Dummy from "./components/Dummy"
 
 function AppLayout() {
   return (
