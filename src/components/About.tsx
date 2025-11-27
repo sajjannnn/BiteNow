@@ -1,8 +1,11 @@
+import UserClass from "./UserClass"
 
 const About = () => {
     return (
         <div>
-            This is About Us Page
+            This is my Learning Project
+            <UserClass/>
+            <UserClass/>
         </div>
     )
 
