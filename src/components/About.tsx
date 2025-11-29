@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div>
             This is my Learning Project
-            <UserClass name = {"sazz"} />
+            <UserClass name = "sazz" location="Mirzapur" />
         </div>
     )
 
