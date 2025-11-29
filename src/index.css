@@ -129,7 +129,8 @@ h3 {
     width: 200px;
     height: 200px;
 }
-#userClass{
-    border: black 10px solid;
-    margin: 200px;
+.userClass{
+    border: black 1px solid;
+    margin: 20px;
+    padding: 5px;
 }

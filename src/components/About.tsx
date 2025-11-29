@@ -4,8 +4,7 @@ const About = () => {
     return (
         <div>
             This is my Learning Project
-            <UserClass/>
-            <UserClass/>
+            <UserClass name = {"sazz"} />
         </div>
     )
 
