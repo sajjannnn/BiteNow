@@ -5,7 +5,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
  const Header = () => {
   const [isLoggedIn, setLoggedIn] = useState("Login")
-  const onlinState = useOnlineStatus()
+  const onlineState = useOnlineStatus()
   return (
     <div className="header">
       <div>
@@ -16,7 +16,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
         <ul>
           <li>
             Online : { 
-              onlinState ? "✅" : "🔴"
+              onlineState ? "✅" : "🔴"
             }
           </li> 
            <li>
@@ -27,6 +27,9 @@ import useOnlineStatus from "../utils/useOnlineStatus";
           </li>
           <li>
             <Link to= "/contact">Contact Us</Link>
+          </li> 
+          <li>
+            <Link to= "/grocery">Grocery Store</Link>
           </li>
           <li>Cart</li>
           <button onClick={() => isLoggedIn === "Login" ? setLoggedIn("Logout") : setLoggedIn("Login")
