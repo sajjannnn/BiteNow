@@ -57,20 +57,22 @@ const Body = () => {
 
    : (
     <div className="body">
-      <input className="inputt"
+      <div className=" flex justify-center">
+      <input className="bg-[#FDFCDC] p-2 m-3"
       value={searchText}
       onChange={(e) => setSearchText(e.target.value)}
       placeholder="Search..." type="text">
       </input>
-        <button className = "search" onClick={searchRes}>
+        <button className="bg-[#8E0000] hover:bg- text-white font-bold py-2 px-4 rounded mx-3 my-2" onClick={searchRes}>
         Search
         </button>
       
-      <button onClick = {topRatedRestaurant}>
+      <button className="bg-[#8E0000] hover:bg- text-white font-bold py-2 px-4 rounded mx-3 my-2" onClick = {topRatedRestaurant}>
         Top Rated Restaurant
       </button>
-
-      <div className="card-container">
+      </div>
+    
+      <div className="flex flex-wrap">
         {Res?.map((restaurant)  => 
           
           <Link to = {"/restaurant/" + restaurant.info.id} key={restaurant.info.id}> <ResCard {...restaurant.info} />  </Link>
