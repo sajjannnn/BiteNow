@@ -16,7 +16,7 @@ const useResMenu = (resId? : string) => {
     const fetchMenu = async () => {
             const response = await fetch(Menu_url + resId);
             Mdata = await response.json();
-            setMenu(Mdata); z    
+            setMenu(Mdata);    
 }
 return menu;
 }

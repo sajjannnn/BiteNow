@@ -2,10 +2,13 @@ import { useState } from "react";
 import { logoUrl } from "../utils/constants"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
  const Header = () => {
   const [isLoggedIn, setLoggedIn] = useState("Login")
   const onlineState = useOnlineStatus()
+
+  const selector = useSelector((store) => store.cart.items)
   return (
     <div className="bg-[#C62828] flex justify-between text-white font-extrabold text-lg">
       <div>
@@ -32,7 +35,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
             <Link to= "/grocery">Grocery Store</Link>
           </li>
           <li className="p-3">
-            Cart
+            <Link to= "/cart"> Cart - {selector.length} Items</Link>
             </li>
           <button className="bg-[#5C0000] hover:bg- text-white font-bold py-2 px-4 rounded mx-3" onClick={() => isLoggedIn === "Login" ? setLoggedIn("Logout") : setLoggedIn("Login")}>
             {isLoggedIn}
