@@ -1,6 +1,7 @@
 const Shimmer = () => {
     return (
-        <div id="shimmer">
+        <div>
+            hodicnjksdncmxnclks
         </div>
     )
 }
