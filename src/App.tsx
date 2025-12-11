@@ -1,69 +1,67 @@
-import Body from "./components/Body"
-import Header from "./components/Header"
-import About from "./components/About"
-import Contact from "./components/Contact"
-import {createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
-import Error from "./components/Error"
-import RestaurantMenu from "./components/RestaurantMenu"
-import { Suspense,lazy } from "react"
-import appStore from "./utils/appStore"
-import {Provider} from "react-redux"
-import Cart from "./components/Cart"
+import Body from "./components/Body";
+import Header from "./components/Header";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
+import { Suspense, lazy } from "react";
+import appStore from "./utils/appStore";
+import { Provider } from "react-redux";
+import Cart from "./components/Cart";
 
 const GroceryStore = lazy(() => import("./components/GroceryStore"));
 function AppLayout() {
   return (
-    <Provider store = {appStore}>
-    <>
-      <Header />
-      <Outlet />
-    </>
+    <Provider store={appStore}>
+      <>
+        <Header />
+        <Outlet />
+      </>
     </Provider>
-
-  )
-};
+  );
+}
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: < Error />,
-    children:[
+    errorElement: <Error />,
+    children: [
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/about",
-        element : <About />
+        element: <About />,
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantMenu />
+        element: <RestaurantMenu />,
       },
       {
         path: "/cart",
-        element: <Cart/>
+        element: <Cart />,
       },
       {
         path: "/grocery",
-        element: 
-        <Suspense fallback={<h1>Loading...</h1>}>
-          <GroceryStore />
-        </Suspense>
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <GroceryStore />
+          </Suspense>
+        ),
       },
     ],
   },
 ]);
 
-
 function App() {
-  return <RouterProvider router={appRouter} />
+  return <RouterProvider router={appRouter} />;
 }
-
 
 export default App;

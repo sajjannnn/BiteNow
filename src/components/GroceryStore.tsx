@@ -1,7 +1,4 @@
-
 const GroceryStore = () => {
-    return (
-        <h1>This is our Grocery Store with lots of child components in it!!</h1>
-    )
-}
-export default GroceryStore
+  return <h1 className="font-medium text-4xl text-center m-20"> This component uses Lazy Loading!!</h1>;
+};
+export default GroceryStore;

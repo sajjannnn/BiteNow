@@ -17,7 +17,7 @@ const RestaurantCategories = ({ section }: RestaurantCategoriesProps) => {
     <div>
       {section.map((category, index) => {
         return (
-          <div key={category.card.card.imageId} className=" my-3 w-250 text-2xl sm:text-2xl font-medium text-black  shadow shadow-gray-400 border-b-2 border-gray-300">
+          <div key={category.card.card.imageId} className="text-base max-w-svh bg-[#FDFCDC] my-3 sm:w-[630px] md:w-[700px] lg:w-[900px] sm:text-2xl font-medium text-black  shadow shadow-gray-400 border-b-2 border-gray-300">
             <div className="flex justify-between" onClick={() => handleClick(index)}>
               <div className="">
                 {category.card.card.title}({category.card.card.itemCards?.length})
