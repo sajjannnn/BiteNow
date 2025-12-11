@@ -1,7 +1,14 @@
 import { useRouteError } from "react-router-dom"
- const Error =() => {
 
-    const err  : unknown = useRouteError();
+interface RouteError {
+  status?: number;
+  statusText?: string;
+}
+ 
+ const Error =() => {
+    const err = useRouteError() as RouteError;
+
+
     return (
         <div>
             <h1>Oops! Something went Wrong</h1>

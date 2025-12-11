@@ -7,7 +7,6 @@ interface UserProps {
 
 interface UserState {
   count: number;
-  count2: number;
 }
 
 class UserClass extends React.Component<UserProps, UserState> {
@@ -16,16 +15,15 @@ class UserClass extends React.Component<UserProps, UserState> {
 
     this.state = {
       count: 0,
-      count2: 2,
     };
   }
   render() {
-    const { count, count2 } = this.state;
+    const { count,} = this.state;
     const { name, location } = this.props;
 
     return (
       <div className="mt-15 text-left">
-        <h1>Name :Sajjan Kumar </h1>
+        <h1>Name :{name} Sajjan Kumar </h1>
         <h3>Location : {location} Delhi</h3>
         <h3>Contact : sajjanaasht@gmail.com</h3>
         <button

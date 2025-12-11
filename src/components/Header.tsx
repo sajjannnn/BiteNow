@@ -2,13 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import type { RootState } from "../utils/appStore";
 
 const Header = () => {
+  
   const [isLoggedIn, setLoggedIn] = useState("Login");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const onlineState = useOnlineStatus();
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store: RootState) => store.cart.items);
 
   return (
     <header className="bg-[#C62828] text-white w-full">

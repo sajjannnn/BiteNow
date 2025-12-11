@@ -20,11 +20,14 @@ const ItemLists = ({ items }: ItemListsProps) => {
   return (
     <div>
       {items.map((item) => {
+         const price = item.card.info.defaultPrice ?? item.card.info.price ?? 0;
+        const displayPrice = Math.round(price / 100);
+
         return (
           <div key={item.card.info.id} className="sm:m-2 p-2 sm:flex justify-between h-auto bg-white">
             <div className="sm:w-3/4 p-5 bg-[#FDFCDC] ">
               <div className="text-xl">{item.card.info.name}</div>
-              <div>Rs. - {item.card.info.defaultPrice / 100 || Math.round(item.card.info.price / 100)}</div>
+              <div>Rs. -{displayPrice}</div>
               <p className="text-sm ">{item.card.info.description}</p>
             </div>
             <div className=" bg-[#FDFCDC] sm:bg-white flex flex-col overflow-hidden items-center">

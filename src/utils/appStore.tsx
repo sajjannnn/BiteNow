@@ -6,4 +6,8 @@ const appStore = configureStore({
     cart: cartSlice,
   },
 });
+
+export type RootState = ReturnType<typeof appStore.getState>;
+export type AppDispatch = typeof appStore.dispatch;
+
 export default appStore;

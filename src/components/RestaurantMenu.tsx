@@ -1,9 +1,7 @@
-import { CDN_url } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
 import RestaurantCategories from "./RestaurantCategory";
-import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();

@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import ItemLists from "./ItemLists";
+import type { RootState, AppDispatch } from "../utils/appStore";
 
 const Cart = () => {
-  const addedItems = useSelector((store) => store.cart.items);
-  const dispatch = useDispatch();
+  const addedItems = useSelector((store: RootState) => store.cart.items);
+  const dispatch = useDispatch<AppDispatch>();
+
 
   const clearAddedItems = () => {
     // Dispatch an action to clear the cart
