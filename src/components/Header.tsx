@@ -23,7 +23,7 @@ const Header = () => {
       >
         {/* LOGO */}
         <div className="flex items-center h-100">
-          <Link to="/">{<img src="https://img.icons8.com/doodle/48/zomato.png" alt="logo" className="h-[60px]" />}</Link>
+          <Link to="/" className="flex items-center font-bold text-2xl">{<img src="https://img.icons8.com/doodle/48/zomato.png" alt="logo" className="h-[60px]" />}BiteNow</Link>
         </div>
 
         {/* DESKTOP MENU */}
@@ -35,8 +35,7 @@ const Header = () => {
           "
         >
           <li className="flex items-center gap-1">
-            <span>Online</span>
-            <span>{onlineState ? "🌍" : "☁️"}</span>
+            <span>{onlineState ? "Online: 🌍" : "Offline: ☁️"}</span>
           </li>
 
           <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
@@ -61,27 +60,19 @@ const Header = () => {
       {/* MOBILE MENU */}
       {menuOpen && (
         <ul className="md:hidden bg-[#B71C1C] px-4 pb-4 space-y-3 font-bold text-sm">
-          <li>Online: {onlineState ? "✅" : "🔴"}</li>
+          <li>{onlineState ? "Online: ✅" : "Offline: 🔴"}</li>
           <li>
             <Link to="/" onClick={() => setMenuOpen(false)}>
               Home
             </Link>
           </li>
-          <li>
-            <Link to="/about" onClick={() => setMenuOpen(false)}>
-              About
-            </Link>
-          </li>
+        
           <li>
             <Link to="/contact" onClick={() => setMenuOpen(false)}>
               Contact
             </Link>
           </li>
-          <li>
-            <Link to="/grocery" onClick={() => setMenuOpen(false)}>
-              Grocery
-            </Link>
-          </li>
+         
           <li>
             <Link to="/cart" onClick={() => setMenuOpen(false)}>
               Cart ({cartItems.length})
