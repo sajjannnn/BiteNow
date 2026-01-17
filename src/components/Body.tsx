@@ -23,7 +23,7 @@ const Body = () => {
   }, []);
 
   const topRatedRestaurant = (): void => {
-    const newList: Restaurant[] = Res.filter((restuarant) => restuarant.info.avgRating > 4);
+    const newList: Restaurant[] = Res.filter((restuarant) => restuarant.info.avgRating > 4).sort((a,b)=> b.info.avgRating - a.info.avgRating);
     setRes(newList);
   };
 
@@ -53,7 +53,7 @@ const Body = () => {
       <Shimmer />
     </div>
   ) : (
-    <div>
+    <div className="mx-auto sm:mx-12 md:mx-24 lg:mx-16 xl:mx-32 2xl:mx-48 ">
       <div className="sm:flex justify-center font-bold ">
         <div className="flex flex-col sm:flex-row justify-center m-2 ">
           <input className="bg-yellow-100 p-2 px-2 mx-2 rounded sm:p-3" value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search..." type="text"></input>
@@ -68,9 +68,9 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="sm:flex flex-wrap justify-around">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {Res?.map((restaurant) => (
-          <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id}>
+          <Link to={"/restaurant/" + restaurant.info.id} key={restaurant.info.id} >
             {" "}
             <ResCard {...restaurant.info} />{" "}
           </Link>

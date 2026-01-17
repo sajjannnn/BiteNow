@@ -6,11 +6,10 @@ const ResCard = (props: Info2) => {
   const { name, costForTwo, cuisines, avgRating, sla, cloudinaryImageId } = props;
   const cuisine = cuisines.join(",");
   return (
-    <div className=" m-3 ">
+    <div className="m-3 ">
       {/* Gradient glow / background frame */}
       <div
         className="
-        max-w-80 sm:w-85 mx-auto
       rounded-2xl
       p-[2px]
       shadow-md
@@ -27,7 +26,7 @@ const ResCard = (props: Info2) => {
         group-hover:bg-[#FFFBEA]
       "
         >
-          <div className="h-32 sm:h-40 md:h-48 lg:h-52 overflow-hidden">
+          <div className="aspect-[4/3] overflow-hidden">
             <img className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src={CDN_url + cloudinaryImageId} alt={name} />
           </div>
 
