@@ -54,15 +54,15 @@ const Body = () => {
     </div>
   ) : (
     <div>
-      <div className="sm:flex justify-center text-md font-bold">
-        <div className="flex justify-center m-2 ">
-          <input className="bg-yellow-100 p-1 mx-2 rounded sm:p-3" value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search..." type="text"></input>
-          <button className="text-white bg-[#7A0000] p-1 px-4 rounded-sm" onClick={searchRes}>
+      <div className="sm:flex justify-center font-bold ">
+        <div className="flex flex-col sm:flex-row justify-center m-2 ">
+          <input className="bg-yellow-100 p-2 px-2 mx-2 rounded sm:p-3" value={searchText} onChange={(e) => setSearchText(e.target.value)} placeholder="Search..." type="text"></input>
+          <button className="sm:mx-0 mx-2 text-white bg-[#7A0000] p-1 mt-2 sm:mt-0 px-12 sm:px-4 rounded-sm" onClick={searchRes}>
             Search
           </button>
         </div>
-        <div className="flex justify-center m-2">
-          <button className="text-white bg-[#7A0000] p-1 rounded-sm px-12" onClick={topRatedRestaurant}>
+        <div className=" flex justify-center m-2">
+          <button className="mx-2 w-full text-white bg-[#7A0000] p-1 rounded-sm px-10" onClick={topRatedRestaurant}>
             Top Rated Restaurant
           </button>
         </div>

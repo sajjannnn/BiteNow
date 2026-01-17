@@ -1,16 +1,13 @@
 import Body from "./components/Body";
 import Header from "./components/Header";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { Suspense, lazy } from "react";
 import appStore from "./utils/appStore";
 import { Provider } from "react-redux";
 import Cart from "./components/Cart";
 
-const GroceryStore = lazy(() => import("./components/GroceryStore"));
 function AppLayout() {
   return (
     <Provider store={appStore}>
@@ -32,10 +29,7 @@ const appRouter = createBrowserRouter([
         path: "/",
         element: <Body />,
       },
-      {
-        path: "/about",
-        element: <About />,
-      },
+      
       {
         path: "/contact",
         element: <Contact />,
@@ -48,14 +42,7 @@ const appRouter = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
-      {
-        path: "/grocery",
-        element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <GroceryStore />
-          </Suspense>
-        ),
-      },
+     
     ],
   },
 ]);

@@ -5,8 +5,6 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import type { RootState } from "../utils/appStore";
 
 const Header = () => {
-  
-  const [isLoggedIn, setLoggedIn] = useState("Login");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const onlineState = useOnlineStatus();
@@ -20,12 +18,12 @@ const Header = () => {
           mx-auto max-w-6xl
           flex items-center justify-between
           px-4 sm:px-6 lg:px-10
-          h-[80px] md:h-[110px]
+          h-[80px]
         "
       >
         {/* LOGO */}
         <div className="flex items-center h-100">
-          <Link to="/">{<img src="https://img.icons8.com/doodle/48/zomato.png" alt="logo" className="h-[40px] md:h-[60px]" />}</Link>
+          <Link to="/">{<img src="https://img.icons8.com/doodle/48/zomato.png" alt="logo" className="h-[60px]" />}</Link>
         </div>
 
         {/* DESKTOP MENU */}
@@ -44,29 +42,14 @@ const Header = () => {
           <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
             <Link to="/">Home</Link>
           </li>
-          <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
-            <Link to="/about">About</Link>
-          </li>
+         
           <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
             <Link to="/contact">Contact</Link>
           </li>
-          <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
-            <Link to="/grocery">Grocery</Link>
-          </li>
+        
           <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
             <Link to="/cart">Cart({cartItems.length})</Link>
           </li>
-
-          <button
-            className="
-              bg-[#5C0000] px-5 py-2 rounded
-              hover:bg-[#7A0000]
-              transition-colors duration-200
-            "
-            onClick={() => setLoggedIn(isLoggedIn === "Login" ? "Logout" : "Login")}
-          >
-            {isLoggedIn}
-          </button>
         </ul>
 
         {/* MOBILE MENU BUTTON */}
@@ -104,16 +87,6 @@ const Header = () => {
               Cart ({cartItems.length})
             </Link>
           </li>
-
-          <button
-            className="w-full bg-[#5C0000] py-2 rounded"
-            onClick={() => {
-              setLoggedIn(isLoggedIn === "Login" ? "Logout" : "Login");
-              setMenuOpen(false);
-            }}
-          >
-            {isLoggedIn}
-          </button>
         </ul>
       )}
     </header>

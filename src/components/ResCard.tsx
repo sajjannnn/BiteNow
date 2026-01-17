@@ -6,10 +6,11 @@ const ResCard = (props: Info2) => {
   const { name, costForTwo, cuisines, avgRating, sla, cloudinaryImageId } = props;
   const cuisine = cuisines.join(",");
   return (
-    <div className="mx-auto group m-3 w-85 max-w-xs sm:max-w-sm">
+    <div className=" m-3 ">
       {/* Gradient glow / background frame */}
       <div
         className="
+        max-w-80 sm:w-85 mx-auto
       rounded-2xl
       p-[2px]
       shadow-md
