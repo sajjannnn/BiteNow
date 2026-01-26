@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import ItemLists from "./ItemLists";
+import CartItems from "./CartItems";
 import type { RootState, AppDispatch } from "../utils/appStore";
 import { LuShoppingBag } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
   const addedItems = useSelector((store: RootState) => store.cart.items);
+  const countItems = useSelector((store: RootState) => store.cart.countItem);
   const dispatch = useDispatch<AppDispatch>();
 
   const clearAddedItems = () => {
-    // Dispatch an action to clear the cart
     dispatch({
       type: "cart/clearCart",
     });
@@ -31,7 +31,7 @@ const Cart = () => {
           </div>
         ) : (
           <div>
-            <ItemLists items={addedItems} />
+            <CartItems items={addedItems} countItems = {countItems}/>
             <div className="flex justify-end ">
               <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-4" onClick={clearAddedItems}>
                 {" "}

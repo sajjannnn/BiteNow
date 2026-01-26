@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import type { RootState } from "../utils/appStore";
@@ -12,7 +12,6 @@ const Header = () => {
 
   return (
     <header className="bg-[#C62828] text-white w-full">
-      {/* TOP BAR */}
       <div
         className="
           mx-auto max-w-6xl
@@ -21,12 +20,12 @@ const Header = () => {
           h-[80px]
         "
       >
-        {/* LOGO */}
         <div className="flex items-center h-100">
-          <Link to="/" className="flex items-center font-bold text-2xl">{<img src="https://img.icons8.com/doodle/48/zomato.png" alt="logo" className="h-[60px]" />}BiteNow</Link>
+          <NavLink to="/" className="flex items-center font-bold text-2xl">
+            {<img src="https://img.icons8.com/doodle/48/zomato.png" alt="logo" className="h-[60px]" />}BiteNow
+          </NavLink>
         </div>
 
-        {/* DESKTOP MENU */}
         <ul
           className="
             hidden md:flex items-center gap-6
@@ -39,44 +38,41 @@ const Header = () => {
           </li>
 
           <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
-            <Link to="/">Home</Link>
+            <NavLink className={({ isActive }) => (isActive ? "underline" : "")} to="/">
+              Home
+            </NavLink>
           </li>
-         
+
+
           <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
-            <Link to="/contact">Contact</Link>
-          </li>
-        
-          <li className="transition-colors duration-200 hover:text-[#FFE5E5] hover:underline underline-offset-4">
-            <Link to="/cart">Cart({cartItems.length})</Link>
+            <NavLink  className={({ isActive }) => (isActive ? "underline" : "")} to="/cart">Cart({cartItems.length})</NavLink>
           </li>
         </ul>
 
-        {/* MOBILE MENU BUTTON */}
         <button className="md:hidden text-3xl" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </button>
       </div>
 
-      {/* MOBILE MENU */}
       {menuOpen && (
         <ul className="md:hidden bg-[#B71C1C] px-4 pb-4 space-y-3 font-bold text-sm">
           <li>{onlineState ? "Online: ✅" : "Offline: 🔴"}</li>
           <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/" onClick={() => setMenuOpen(false)}>
               Home
-            </Link>
+            </NavLink>
           </li>
-        
+
           <li>
-            <Link to="/contact" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
               Contact
-            </Link>
+            </NavLink>
           </li>
-         
+
           <li>
-            <Link to="/cart" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/cart" onClick={() => setMenuOpen(false)}>
               Cart ({cartItems.length})
-            </Link>
+            </NavLink>
           </li>
         </ul>
       )}

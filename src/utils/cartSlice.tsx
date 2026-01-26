@@ -5,10 +5,14 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: [] as ItemCard[],
+    countItem :{} as Record<string,number>,
   },
   reducers: {
     addItem: (state, action) => {
       state.items.push(action.payload);
+    },
+    addCount : (state,action) => {
+      state.countItem[action.payload.id] = action.payload.num;
     },
     clearCart: (state) => {
       state.items.length = 0;
@@ -16,5 +20,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, clearCart } = cartSlice.actions;
+export const { addItem, clearCart,addCount } = cartSlice.actions;
 export default cartSlice.reducer;

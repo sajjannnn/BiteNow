@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { CDN_url } from "../utils/constants";
 import { type ItemCard } from "../utils/menuMockData";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addCount } from "../utils/cartSlice";
+import type { RootState } from "../utils/appStore";
 
 interface ItemListsProps {
   items: ItemCard[];
@@ -10,14 +12,23 @@ interface ItemListsProps {
 const ItemLists = ({ items }: ItemListsProps) => {
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
   const dispatch = useDispatch();
+  const countItems = useSelector((store: RootState) => store.cart.countItem);
 
   const addItemToCart = (item: ItemCard) => {
-    dispatch({
-      type: "cart/addItem",
-      payload: item,
-    });
-
+    console.log("55")
     const id = item.card.info.id;
+    if (countItems[id]) {
+      const num = countItems[id]+1;
+      dispatch(addCount({id,num}))
+    } else {
+      // countItems.set(id, 1);
+      dispatch({
+        type: "cart/addItem",
+        payload: item,
+      });
+      const num = 1;
+      dispatch(addCount({id,num}))
+    }
 
     setAddedItems((prev) => ({
       ...prev,
@@ -58,17 +69,19 @@ const ItemLists = ({ items }: ItemListsProps) => {
                 onClick={() => addItemToCart(item)}
                 disabled={isAdded}
                 className={`
+                  absolute 
+                
                   mt-2
                   w-25
-                  border-2
-                  border-black
+                  
+                  
                   rounded-lg
                   transition-all
                   duration-300
-                  ${isAdded ? "bg-green-500 text-white cursor-default" : "bg-white hover:bg-[#ebd77b]"}
+                  ${isAdded ? "bg-green-500 text-white cursor-default" : "bg-white hover:bg-[#ebd77b] cursor-pointer"}
                 `}
               >
-                {isAdded ? "Added ✓" : "Add+"}
+                {isAdded ? "Added " : "Add+"}
               </button>
             </div>
           </div>
