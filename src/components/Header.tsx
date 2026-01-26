@@ -62,13 +62,6 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-
-          <li>
-            <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
-              Contact
-            </NavLink>
-          </li>
-
           <li>
             <NavLink to="/cart" onClick={() => setMenuOpen(false)}>
               Cart ({cartItems.length})
