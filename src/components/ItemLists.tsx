@@ -15,7 +15,6 @@ const ItemLists = ({ items }: ItemListsProps) => {
   const countItems = useSelector((store: RootState) => store.cart.countItem);
 
   const addItemToCart = (item: ItemCard) => {
-    console.log("55")
     const id = item.card.info.id;
     if (countItems[id]) {
       const num = countItems[id]+1;
